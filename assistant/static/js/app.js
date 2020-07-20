@@ -2,18 +2,19 @@ const usernameInput = document.getElementById('username');
 const button = document.getElementById('join_leave');
 const container = document.getElementById('container');
 const count = document.getElementById('count');
-
+const button1 = document.getElementById('photo');
 var connected = false;
 var room;
+var localtracks;
 
-function addLocalVideo() {
-    Twilio.Video.createLocalVideoTrack().then(track => {
-        var video = document.getElementById('local').firstChild;
-        video.appendChild(track.attach());
-    });
-};
+Twilio.Video.createLocalTracks({
+    audio: true,
+}).then(function(localTracks) {
+    localtracks = localTracks;
+  });
 
 function connectButtonHandler(event) {
+    console.log('ok1')
     event.preventDefault();
     if (!connected) {
         var username = usernameInput.value;
@@ -47,7 +48,7 @@ function connect(username) {
             body: JSON.stringify({'username': username})
         }).then(res => res.json()).then(data => {
             // join video call
-            return Twilio.Video.connect(data.token);
+            return Twilio.Video.connect(data.token,{tracks: localtracks});
         }).then(_room => {
             room = _room;
             room.participants.forEach(participantConnected);
@@ -109,30 +110,10 @@ function trackUnsubscribed(track) {
 
 function disconnect() {
     room.disconnect();
-    while (container.lastChild.id != 'local')
-        container.removeChild(container.lastChild);
+    container.removeChild(container.lastChild);
     button.innerHTML = 'Join call';
     connected = false;
     updateParticipantCount();
 };
 
-$(document).ready(function(){
-    $("#take_photo").submit(function(event){
-        event.preventDefault();
-        $.ajax({
-            url: $(this).attr('action'),
-            type: $(this).attr('method'),
-
-            success: function(json){
-                console.log(json)
-            }
-
-        })
-        
-    })
-    //instrucciones jquery
-    
-    });
-
-addLocalVideo();
 button.addEventListener('click', connectButtonHandler);

@@ -73,7 +73,6 @@ def prueba(request):
 
 @csrf_exempt
 def chat(request):
-
     chat_ext = loader.get_template('templates/chat.html')
     ctx = {}
     doc = chat_ext.render(ctx)
