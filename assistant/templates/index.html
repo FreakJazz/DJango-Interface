@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.0.1">
-    <title>Remote Assistance</title>
+    <title>Django Interface</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -25,33 +25,54 @@
 
 <body>
     <header class="card">
-      <nav class="navbar navbar-light bg-black">
-        <a class="navbar-brand" href="">
-        <img style="width:150px; height:40px;" src = "{% static 'images/logo.png' %}" class="d-inline-block align-top" alt="">
-        Remote Assistance
-      </a>
-      </nav> 
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
+          <div class="container">
+            <a class="navbar-brand" href="">
+              <img style="width:150px; height:40px;" src = "{% static 'images/logo.png' %}" class="d-inline-block align-top" alt="">
+              Django Test
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                  <form action="/sing_up", method = "POST", class="form-inline" id="formulario">	
+                      {% csrf_token %}	
+                      {#{% buttons %}#}
+                      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" id = "sing_up">
+                          <i class="material-icons right">Log in</i>
+                      {#{% endbuttons %}#}
+                  </button>
+                  </form>
+                </li>
+                <li class="nav-item">
+                  <form action="/sing_up", method = "POST", class="form-inline" id="formulario">	
+                      {% csrf_token %}	
+                      {#{% buttons %}#}
+                      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" id = "sing_up">
+                          <i class="material-icons right">Register</i>
+                      {#{% endbuttons %}#}
+                  </button>
+                  </form>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
     </header>
+
+
     <div class="card">
-      <div class="card-header">
-        Manager Panel
+      <div class="text-center">
+        This screen shows how Django works with PostgreSQL to configure various screens with login and generate a final image report
       </div>
-      <div class="card-body">
-        <h5 >Welcome to the Control Panel of Remote Assistance</h5>
-        <p>Login to the administrator so that you can guide your client in the best way</p>
-        <form action="/sing_up", method = "POST", class="col s12" id="formulario">	
-            {% csrf_token %}	
-            {#{% buttons %}#}
-            <button class="btn btn-primary" type="submit" id = "sing_up">
-                <i class="material-icons right">Log in</i>
-            {#{% endbuttons %}#}
-        </button>
-      </div>
-      
-    </div>  
+
+       
     <footer class = "footer"> 
     <div class="card-footer text-muted">
-       <p class="mt-1 mb-1 text-muted text-center">&copy; 2020-Remote Assistance</p>
+       <p class="mt-1 mb-1 text-muted text-center">&copy; 2020 - Jazz | Smart Development</p>
       </div> 
     </footer>
     {#<script src="{% static 'app1.js' %}"></script>#}

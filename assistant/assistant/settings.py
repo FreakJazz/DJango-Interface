@@ -56,7 +56,7 @@ ROOT_URLCONF = 'assistant.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/Users/Jazmin Rodriguez/Desktop/Proyectos GitHub/jazz_remote_assistance/Remote-Assistant/assistant/static','C:/Users/Jazmin Rodriguez/Desktop/Proyectos GitHub/jazz_remote_assistance/Remote-Assistant/assistant'],
+        'DIRS': ['C:/Users/Jazmin Rodriguez/Desktop/Proyectos GitHub/django/DJango-Interface/assistant/static','C:/Users/Jazmin Rodriguez/Desktop/Proyectos GitHub/django/DJango-Interface/assistant/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
