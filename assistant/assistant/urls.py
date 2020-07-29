@@ -25,6 +25,7 @@ urlpatterns = [
     path('photo', views.photo, name='photo'),
     path('login', views.login, name='login'),
     path('sing_up', views.login_screen, name='sing_up'),
+    path('register', views.register_screen, name='register'),
     path('link', views.link, name='link'),
     path('prueba', views.prueba, name='prueba'),
 ]

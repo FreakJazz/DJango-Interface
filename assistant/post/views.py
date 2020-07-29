@@ -65,6 +65,13 @@ def login_screen(request):
     doc = index_ext.render({})
     return HttpResponse(doc)
 
+@csrf_exempt
+def register_screen(request):
+    index_ext = loader.get_template('templates/register.html')
+    # a dictionary is necessary with loader template
+    doc = index_ext.render({})
+    return HttpResponse(doc)
+
 def prueba(request):
     index_ext = loader.get_template('templates/prueba.html')
     # a dictionary is necessary with loader template

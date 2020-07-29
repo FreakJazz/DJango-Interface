@@ -46,12 +46,27 @@
   <form action="/chat_assis", method = "POST", class="form-signin" id="formulario">	
             {% csrf_token %}
   <div class="text-center mb-4">
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <h1 class="h3 mb-3 font-weight-normal">Please Register Here</h1>
+  </div>
+
+  <div class="form-label-group">
+    <input type="name" id="inputUser" class="form-control" placeholder="Name" required autofocus>
+    <label for="inputUsername">Name</label>
   </div>
 
   <div class="form-label-group">
     <input type="username" id="inputUser" class="form-control" placeholder="Username" required autofocus>
     <label for="inputUsername">Username</label>
+  </div>
+
+  <div class="form-label-group">
+    <input type="phone" id="inputUser" class="form-control" placeholder="Phone" required autofocus>
+    <label for="inputUsername">Phone Number</label>
+  </div>
+
+  <div class="form-label-group">
+    <input type="email" id="inputUser" class="form-control" placeholder="Email" required autofocus>
+    <label for="inputUsername">Email</label>
   </div>
 
   <div class="form-label-group">
