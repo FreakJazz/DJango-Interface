@@ -20,8 +20,7 @@ from post import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.greeting, name='index'),
-    path('chat_assis', views.chat, name='chat1'),
-    path('chat_user', views.users, name='chat2'),
+    path('control', views.control, name='control'),
     path('photo', views.photo, name='photo'),
     path('login', views.login, name='login'),
     path('sing_up', views.login_screen, name='sing_up'),

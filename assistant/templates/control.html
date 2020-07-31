@@ -1,0 +1,80 @@
+{% load static %}
+{% csrf_token %}
+
+{# Display a form #}
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v4.0.1">
+    <title>Django Interface</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <meta name="theme-color" content="#563d7c">
+
+    <!-- Custom styles for this template -->
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  </head>
+
+<body>
+    <header class="card">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light static-top">
+          <div class="container">
+            <a class="navbar-brand" href="">
+              <img style="width:150px; height:50px;" src = "{% static 'images/logo.png' %}" class="d-inline-block align-top" alt="">
+              Control Panel
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                  <form action="/sing_up", method = "POST", class="form-inline" id="formulario">	
+                      {% csrf_token %}	
+                      {#{% buttons %}#}
+                      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" id = "sing_up">
+                          <i class="material-icons right">Log in</i>
+                      {#{% endbuttons %}#}
+                  </button>
+                  </form>
+                </li>
+                <li class="nav-item">
+                  <form action="/register", method = "POST", class="form-inline" id="formulario">	
+                      {% csrf_token %}	
+                      {#{% buttons %}#}
+                      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" id = "register">
+                          <i class="material-icons right">Register</i>
+                      {#{% endbuttons %}#}
+                  </button>
+                  </form>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+    </header>
+
+
+    <div class="card">
+      <div class="text-center">
+        This screen shows how Django works with PostgreSQL to configure various screens with login and generate a final image report
+      </div>
+
+       
+    <footer class = "footer"> 
+    <div class="card-footer text-muted">
+       <p class="mt-1 mb-1 text-muted text-center">&copy; 2020 - Jazz | Smart Development</p>
+      </div> 
+    </footer>
+    {#<script src="{% static 'app1.js' %}"></script>#}
+</body>
+</html>

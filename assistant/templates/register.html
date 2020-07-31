@@ -43,34 +43,34 @@
   </head>
   <body class="text-center">
 
-  <form action="/chat_assis", method = "POST", class="form-signin" id="formulario">	
+  <form action="/control", method = "POST", class="form-signin" id="formulario">	
             {% csrf_token %}
   <div class="text-center mb-4">
     <h1 class="h3 mb-3 font-weight-normal">Please Register Here</h1>
   </div>
 
   <div class="form-label-group">
-    <input type="name" id="inputUser" class="form-control" placeholder="Name" required autofocus>
+    <input type="name" name = "name" id="inputUser" class="form-control" placeholder="Name" required autofocus>
     <label for="inputUsername">Name</label>
   </div>
 
   <div class="form-label-group">
-    <input type="username" id="inputUser" class="form-control" placeholder="Username" required autofocus>
+    <input type="username"  name="username" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
     <label for="inputUsername">Username</label>
   </div>
 
   <div class="form-label-group">
-    <input type="phone" id="inputUser" class="form-control" placeholder="Phone" required autofocus>
+    <input type="phone" name="phone" id="inputPhone" class="form-control" placeholder="Phone" required autofocus>
     <label for="inputUsername">Phone Number</label>
   </div>
 
   <div class="form-label-group">
-    <input type="email" id="inputUser" class="form-control" placeholder="Email" required autofocus>
+    <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
     <label for="inputUsername">Email</label>
   </div>
 
   <div class="form-label-group">
-    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
     <label for="inputPassword">Password</label>
   </div>
 

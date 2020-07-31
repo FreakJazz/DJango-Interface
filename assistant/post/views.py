@@ -12,7 +12,7 @@ from twilio.twiml.voice_response import Dial, VoiceResponse, Gather
 from twilio.rest import Client
 from django.shortcuts import render
 from django.http import JsonResponse
-from .models import Post
+from .models import Users
 
 load_dotenv()
 twilio_account_sid = os.environ.get('TWILIO_ACCOUNT_SID')
@@ -79,18 +79,31 @@ def prueba(request):
     return HttpResponse(doc)
 
 @csrf_exempt
-def chat(request):
-    chat_ext = loader.get_template('templates/chat.html')
-    ctx = {}
-    doc = chat_ext.render(ctx)
-    return HttpResponse(doc)
+def control(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        username = request.POST.get('username')
+        phone = request.POST.get('phone')
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        register = Users()
+        register.Name = name
+        register.Username = username
+        register.Phone = phone
+        register.Email = email
+        register.Password = password
+        #register.save()
 
-@csrf_exempt
-def users(request):
-    chatuser_ext = loader.get_template('templates/chat_user.html')
-    ctx = {}
-    doc = chatuser_ext.render(ctx)
-    return HttpResponse(doc)
+        print(name)
+        print(username)
+        index_ext = loader.get_template('templates/control.html')
+        # a dictionary is necessary with loader template
+        doc = index_ext.render({})
+        return HttpResponse(doc)
+
+        
+        
+    
 
 @csrf_exempt
 def photo(request):
