@@ -1,4 +1,4 @@
-"""assistant URL Configuration
+"""interface URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.0/topics/http/urls/
@@ -15,16 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from post import views
+from usersRegister import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.greeting, name='index'),
-    path('control', views.control, name='control'),
-    path('photo', views.photo, name='photo'),
-    path('login', views.login, name='login'),
+    path('control', views.createRegister, name='control'),
     path('sing_up', views.login_screen, name='sing_up'),
     path('register', views.register_screen, name='register'),
-    path('link', views.link, name='link'),
-    path('prueba', views.prueba, name='prueba'),
+
 ]

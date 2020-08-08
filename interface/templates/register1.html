@@ -1,0 +1,41 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>Django Interface</title>
+
+  </head>
+<body class="text-center">
+  {% block content %}
+
+    <form action="/control", method = "POST", class="form-signin" id="formulario">	
+            {% csrf_token %}
+            {{ form.as_p }}
+    <div class="text-center mb-4">
+    <h1 class="h3 mb-3 font-weight-normal">Please Register Here</h1>
+    </div>
+
+    
+
+<div >
+    <label>
+      <input type="checkbox" value="remember-me"> Remember me
+    </label>
+  </div>
+  <button type="submit">Sign in</button>
+
+  <footer > 
+    <div >
+       <p >2020 - VVV | Smart Development</p>
+      </div> 
+    </footer>
+</form>
+{% endblock %}
+
+</body>
+
+</html>
