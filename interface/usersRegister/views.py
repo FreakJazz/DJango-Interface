@@ -57,7 +57,43 @@ def createRegister(request):
 
         print(name)
         print(username)
-        index_ext = loader.get_template('templates/control.html')
+        index_ext = loader.get_template('templates/index.html')
         # a dictionary is necessary with loader template
         doc = index_ext.render({})
         return HttpResponse(doc)
+
+@csrf_exempt
+def select(request):
+    users = Users.objects.all()
+    context = {'users' : users}
+    index_ext = loader.get_template('templates/view.html')
+    # a dictionary is necessary with loader template
+    doc = index_ext.render(context)
+    return HttpResponse(doc)
+
+
+@csrf_exempt
+def update(request):
+    id = request.POST.get('id')
+    users = Users.objects.get(id = id)
+    print(id)
+    print(users)
+    if request.method =='GET':
+        register = Users(instance = users)
+    else:
+        name = request.POST.get('name')
+        username = request.POST.get('username')
+        phone = request.POST.get('phone')
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        register = Users()
+    register.Name = name
+    register.Username = username
+    register.Phone = phone
+    register.Email = email
+    register.Password = password
+    register.save()
+    index_ext = loader.get_template('templates/register.html')
+    # a dictionary is necessary with loader template
+    doc = index_ext.render({})
+    return HttpResponse(doc)

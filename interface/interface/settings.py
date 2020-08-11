@@ -56,7 +56,7 @@ ROOT_URLCONF = 'interface.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/Users/Jazmin Rodriguez/Desktop/Proyectos GitHub/Django Interface/interface/','C:/Users/Jazmin Rodriguez/Desktop/Proyectos GitHub/Django Interface/interface/static/'],
+        'DIRS': ['C:/Users/Jazmin Rodriguez/Desktop/Proyectos GitHub/django/DJango-Interface/interface','C:/Users/Jazmin Rodriguez/Desktop/Proyectos GitHub/django/DJango-Interface/interface/static/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

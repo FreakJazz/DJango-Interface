@@ -36,38 +36,71 @@
                   <span class="navbar-toggler-icon"></span>
                 </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
+            </div>
+          </div>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
               <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                  <form action="/sing_up", method = "POST", class="form-inline" id="formulario">	
+                  <form action="index/", method = "POST", class="form-inline" id="formulario">	
                       {% csrf_token %}	
                       {#{% buttons %}#}
                       <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" id = "sing_up">
-                          <i class="material-icons right">Log in</i>
+                          <i class="material-icons right">Back</i>
                       {#{% endbuttons %}#}
                   </button>
                   </form>
                 </li>
                 <li class="nav-item">
-                  <form action="/register", method = "POST", class="form-inline" id="formulario">	
+                  <form action="/edit", method = "POST", class="form-inline" id="formulario">	
                       {% csrf_token %}	
                       {#{% buttons %}#}
-                      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" id = "register">
-                          <i class="material-icons right">Register</i>
+                      <input type="id" name = "id" id="inputId" class="form-control block-in-line" placeholder="ID" >
+                      <button class="btn btn-outline-primary my-2 my-sm-0 block-in-line" type="submit" id = "edit">
+                          <i class="material-icons right">Edit</i>
+                      {#{% endbuttons %}#}
+                  </button>
+                  </form>
+                </li>
+                <li class="nav-item">
+                  <form action="/delete", method = "POST", class="form-inline" id="formulario">	
+                      {% csrf_token %}	
+                      {#{% buttons %}#}
+                      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" id = "delete">
+                          <i class="material-icons right">Delete</i>
                       {#{% endbuttons %}#}
                   </button>
                   </form>
                 </li>
               </ul>
             </div>
-          </div>
         </nav>
     </header>
 
 
-    <div class="card">
-      <div class="text-center">
-        This screen shows how Django works with PostgreSQL to configure various screens with login and generate a final image report
-      </div>
+    <table>  
+      <thead>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Username</td>
+        <td>Phone</td>
+        <td>Email</td>
+        <td>Password</td>
+      </thead>
+      {% for users in users %}
+      <tbody>
+        <td>{{users.id}}</td>
+        <td>{{users.Name}}</td>
+        <td>{{users.Username}}</td>
+        <td>{{users.Phone}}</td>
+        <td>{{users.Email}}</td>
+        <td>{{users.Password}}</td>
+      </tbody>
+      {% endfor %}
+    </table>
+      
+      
+
+
 
        
     <footer class = "footer"> 
