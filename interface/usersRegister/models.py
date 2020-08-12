@@ -27,7 +27,7 @@ class Users (models.Model):
         verbose_name_plural = 'Users'
 
     def __str__(self):
-        return self.Username + ' ' + self.Password
+        return self.Name
 
 class Sign (models.Model):
     id = models.AutoField(primary_key = True)  

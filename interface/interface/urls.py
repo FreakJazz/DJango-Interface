@@ -24,7 +24,6 @@ urlpatterns = [
     path('sing_up', views.login_screen, name='sing_up'),
     path('register', views.register_screen, name='register'),
     path('view', views.select, name='view'),
-    path('index', views.greeting, name='index'),
+    path('index/', views.back, name='index'),
     path('edit', views.update, name='edit'),
-
 ]

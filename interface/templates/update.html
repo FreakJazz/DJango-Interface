@@ -1,0 +1,93 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="FreakJazz">
+    <title>Django Interface</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/sign-in/">
+    <link rel = "stylesheet", href = "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap core CSS -->
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <link href="{% static 'css/bootstrap.min.css'%} " rel="stylesheet">
+    <link href="{% static 'css/signin.css'%} " rel="stylesheet">
+    <meta name="theme-color" content="#563d7c">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+  </head>
+  <body class="text-center">
+
+  <form action="/edit", method = "POST", class="form-signin" id="formulario">	
+            {% csrf_token %}
+  <div class="text-center mb-4">
+    <h1 class="h3 mb-3 font-weight-normal">Change the User</h1>
+  </div>
+  
+  <div class="form-label-group">
+    <input type="name" name = "name" id="inputUser" class="form-control" value={{users.Name}} placeholder="Name" required autofocus>
+    <label for="inputUsername">Name</label>
+  </div>
+
+  <div class="form-label-group">
+    <input type="username"  name="username" id="inputUsername" class="form-control" value={{users.Username}} placeholder="Username" required autofocus>
+    <label for="inputUsername">Username</label>
+  </div>
+
+  <div class="form-label-group">
+    <input type="phone" name="phone" id="inputPhone" class="form-control" value={{users.Phone}} placeholder="Phone" required autofocus>
+    <label for="inputUsername">Phone</label>
+  </div>
+
+  <div class="form-label-group">
+    <input type="email" name="email" id="inputEmail" class="form-control" value = {{users.Email}} placeholder="Email" required autofocus>
+    <label for="inputUsername">Email</label>
+  </div>
+
+  <div class="form-label-group">
+    <input type="password" name="password" id="inputPassword" class="form-control" value={{users.Password}} placeholder="Password" required>
+    <label for="inputPassword">Password</label>
+  </div>
+  
+
+  <div class="checkbox mb-3">
+    <label>
+      <input type="checkbox" value="remember-me"> Remember me
+    </label>
+  </div>
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+  <footer class = "footer"> 
+    <div class="card-footer text-muted">
+       <p class="mt-1 mb-1 text-muted text-center">&copy; 2020 - VVV | Smart Development</p>
+      </div> 
+    </footer>
+</form>
+
+</body>
+
+</html>

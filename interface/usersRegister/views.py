@@ -75,25 +75,35 @@ def select(request):
 @csrf_exempt
 def update(request):
     id = request.POST.get('id')
-    users = Users.objects.get(id = id)
+    try:
+        users = Users.objects.get(id = id)
+    except users.DoesNotExist:
+        return redirect('index')
     print(id)
     print(users)
-    if request.method =='GET':
-        register = Users(instance = users)
-    else:
+    if request.method == 'GET':
+        print("entro al get")
+        context = {'users' : users}
+    if request.method == 'POST':
+        print("entro al post")
         name = request.POST.get('name')
         username = request.POST.get('username')
         phone = request.POST.get('phone')
         email = request.POST.get('email')
         password = request.POST.get('password')
-        register = Users()
-    register.Name = name
-    register.Username = username
-    register.Phone = phone
-    register.Email = email
-    register.Password = password
-    register.save()
-    index_ext = loader.get_template('templates/register.html')
-    # a dictionary is necessary with loader template
-    doc = index_ext.render({})
+        register = Users(id=id)
+        register.Name = name
+        register.Username = username
+        register.Phone = phone
+        register.Email = email
+        register.Password = password
+        register.save()
+    index_ext = loader.get_template('templates/update.html')
+    doc = index_ext.render(context)
+    return HttpResponse(doc)
+
+@csrf_exempt
+def back(request):
+    index_ext = loader.get_template('templates/index.html')
+    doc = index_ext.render(context)
     return HttpResponse(doc)
